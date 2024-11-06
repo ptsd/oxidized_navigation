@@ -30,5 +30,6 @@ jobs:
         report_paths: 'target/nextest/ci/junit.xml'
         check_name: Avian3d Test Report
         include_passed: true
+        job_summary: false
         detailed_summary: true
         comment: true
