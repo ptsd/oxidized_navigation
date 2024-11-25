@@ -2,8 +2,10 @@ name: Report Test Run
 on:
   workflow_run:
     workflows: [
-      Test Avian,
       Test Parry,
+      Test Avian,
+      Test Rapier,
+      Test Benches,
     ]
     types: [ completed ]
 
