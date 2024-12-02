@@ -83,4 +83,3 @@ jobs:
           annotate_notice: true
           check_annotations: true
           updateComment: true
-          update_check: true
