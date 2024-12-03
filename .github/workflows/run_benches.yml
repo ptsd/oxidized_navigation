@@ -1,9 +1,7 @@
-name: Test Rapier
+name: Benches
 
 on:
-  push:
-  pull_request:
-    branches: [ "master", "dev" ]
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -13,9 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository code.
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - uses: Swatinem/rust-cache@v2
     - name: Install alsalib headers
       run: sudo apt-get update; sudo apt-get install --no-install-recommends libasound2-dev libudev-dev libwayland-dev libxkbcommon-dev
-    - name: Run tests for repository.
-      run: cargo test --features "rapier"
+    - uses: boa-dev/criterion-compare-action@v3
+      with:
+        defaultFeatures: false
+        features: "parry3d"
+        # The baseline branch.
+        # TODO: Move to `github.base_ref` once merged.
+        branchName: ${{ github.head_ref }}
