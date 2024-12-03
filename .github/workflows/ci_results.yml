@@ -35,7 +35,7 @@ jobs:
           workflow: ${{ github.event.workflow.id }}
           run_id: ${{ github.event.workflow_run.id }}
       - name: Publish Test Report
-        uses: ptsd/action-junit-report@feature/allow_ignore_classname_in_resolver
+        uses: ptsd/action-junit-report@feature/allow_ignore_classname_in_resolver2
         if: always()
         with:
           commit: ${{github.event.workflow_run.head_sha}}
@@ -47,3 +47,5 @@ jobs:
           annotate_notice: true
           check_annotations: true
           resolve_ignore_classname: true
+          comment: true
+          issue_number: ${{ steps.pr-context.outputs.pr_number }}
