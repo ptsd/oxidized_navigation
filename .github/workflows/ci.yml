@@ -83,3 +83,4 @@ jobs:
           annotate_notice: true
           check_annotations: true
           updateComment: true
+          resolve_ignore_classname: true
