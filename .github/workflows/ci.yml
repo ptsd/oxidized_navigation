@@ -21,7 +21,7 @@ jobs:
       - name: Run cargo check
         run: cargo check --lib --all-features --message-format json | cargo-action-fmt
       - name: Run cargo clippy
-        run: cargo clippy --all-features --no-deps --message-format json -- -D warning | cargo-action-fmt
+        run: cargo clippy --all-features --no-deps --message-format json -- -D warnings | cargo-action-fmt
 
   tests:
     name: Test Suite
@@ -71,13 +71,13 @@ jobs:
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
       - name: Publish Test Report
-        uses: mikepenz/action-junit-report@v5
+        uses: ptsd/action-junit-report@feature/allow_ignore_classname_in_resolver
         if: always()
         with:
           report_paths: '**/*.xml'
           check_name: Nextest Report
           detailed_summary: true
-          include_passed: true
+          include_passed: false
           group_suite: true
           comment: true
           annotate_notice: true
