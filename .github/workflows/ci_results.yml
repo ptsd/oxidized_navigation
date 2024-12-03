@@ -13,6 +13,8 @@ jobs:
     runs-on: ubuntu-22.04
     if: ${{ always() }}
     steps:
+      - name: lolpops
+        run: echo '${{ github.event.workflow_run.pull_requests }}'
       - name: Download all workflow run artifacts
         uses: dawidd6/action-download-artifact@v2
         with:
