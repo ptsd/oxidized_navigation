@@ -124,6 +124,6 @@ fn test_simple_navigation() {
     let path = find_path(&nav_mesh, nav_mesh_settings, start_pos, end_pos, None, None);
 
     if let Err(error) = path {
-        panic!("Pathfinding failed: {error:?}");
+        panic!("Pathfinding failed : {error:?}");
     }
 }
