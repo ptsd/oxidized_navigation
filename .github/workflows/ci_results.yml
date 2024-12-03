@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       pull-requests: write
+      discussions: write
     if: ${{ always() }}
     steps:
       - name: 'Get PR number for commit'
