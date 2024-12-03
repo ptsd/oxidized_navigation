@@ -12,7 +12,7 @@ jobs:
     name: Publish reports
     runs-on: ubuntu-22.04
     permissions:
-      pull_request: write
+      pull-requests: write
     if: ${{ always() }}
     steps:
       - name: 'Get PR number for commit'
